@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConexionComedorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Comedor">
+          <Key>
+            <PropertyRef Name="IDcomedor" />
+          </Key>
+          <Property Name="IDcomedor" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre_Comedor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="Cod_venta" />
+          </Key>
+          <Property Name="Cod_venta" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDplatillo" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Precio" Type="nchar" MaxLength="10" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="IDempleado" />
+          </Key>
+          <Property Name="IDempleado" Type="int" Nullable="false" />
+          <Property Name="Nombre_Empleado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Edad" Type="nchar" MaxLength="10" />
+          <Property Name="Dias_trabajados" Type="int" />
+          <Property Name="Sueldo_Diario" Type="int" />
+          <Property Name="Planilla_Neto" Type="int" />
+          <Property Name="Contraseña" Type="nchar" MaxLength="10" />
+          <Property Name="Genero" Type="nchar" MaxLength="10" />
+          <Property Name="Rol" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Cod_producto" />
+          </Key>
+          <Property Name="Cod_producto" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre_producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="cantidad_Existente" Type="int" />
+        </EntityType>
+        <EntityType Name="Platillo">
+          <Key>
+            <PropertyRef Name="IdPlatillo" />
+          </Key>
+          <Property Name="IdPlatillo" Type="int" Nullable="false" />
+          <Property Name="Nombre_Platillo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio" Type="int" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Cod_Producto" />
+          </Key>
+          <Property Name="Cod_Producto" Type="int" Nullable="false" />
+          <Property Name="Nombre_Producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cantidad_Producto" Type="int" />
+        </EntityType>
+        <EntityType Name="Proovedores">
+          <Key>
+            <PropertyRef Name="Cod_Proovedor" />
+          </Key>
+          <Property Name="Cod_Proovedor" Type="int" Nullable="false" />
+          <Property Name="Nombre_Provedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Numero_Pedido" Type="int" />
+          <Property Name="Fecha_Entrega" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Cod_venta" />
+          </Key>
+          <Property Name="Cod_venta" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fecha_Venta" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ConexionComedorModelStoreContainer">
+          <EntitySet Name="Comedor" EntityType="Self.Comedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Platillo" EntityType="Self.Platillo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proovedores" EntityType="Self.Proovedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConexionComedorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Comedor">
+          <Key>
+            <PropertyRef Name="IDcomedor" />
+          </Key>
+          <Property Name="IDcomedor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombre_Comedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="Cod_venta" />
+          </Key>
+          <Property Name="Cod_venta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDplatillo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Precio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="IDempleado" />
+          </Key>
+          <Property Name="IDempleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Edad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Dias_trabajados" Type="Int32" />
+          <Property Name="Sueldo_Diario" Type="Int32" />
+          <Property Name="Planilla_Neto" Type="Int32" />
+          <Property Name="Contraseña" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Genero" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Cod_producto" />
+          </Key>
+          <Property Name="Cod_producto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombre_producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cantidad_Existente" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Platillo">
+          <Key>
+            <PropertyRef Name="IdPlatillo" />
+          </Key>
+          <Property Name="IdPlatillo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Platillo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Cod_Producto" />
+          </Key>
+          <Property Name="Cod_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cantidad_Producto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Proovedores">
+          <Key>
+            <PropertyRef Name="Cod_Proovedor" />
+          </Key>
+          <Property Name="Cod_Proovedor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Provedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Numero_Pedido" Type="Int32" />
+          <Property Name="Fecha_Entrega" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Cod_venta" />
+          </Key>
+          <Property Name="Cod_venta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Fecha_Venta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ConexionComedorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Comedor" EntityType="Self.Comedor" />
+          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" />
+          <EntitySet Name="Platillo" EntityType="Self.Platillo" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Proovedores" EntityType="Self.Proovedores" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConexionComedorModelStoreContainer" CdmEntityContainer="ConexionComedorEntities">
+          <EntitySetMapping Name="Comedor">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Comedor">
+              <MappingFragment StoreEntitySet="Comedor">
+                <ScalarProperty Name="IDcomedor" ColumnName="IDcomedor" />
+                <ScalarProperty Name="Nombre_Comedor" ColumnName="Nombre_Comedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleVenta">
+            <EntityTypeMapping TypeName="ConexionComedorModel.DetalleVenta">
+              <MappingFragment StoreEntitySet="DetalleVenta">
+                <ScalarProperty Name="Cod_venta" ColumnName="Cod_venta" />
+                <ScalarProperty Name="IDplatillo" ColumnName="IDplatillo" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="IDempleado" ColumnName="IDempleado" />
+                <ScalarProperty Name="Nombre_Empleado" ColumnName="Nombre_Empleado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Dias_trabajados" ColumnName="Dias_trabajados" />
+                <ScalarProperty Name="Sueldo_Diario" ColumnName="Sueldo_Diario" />
+                <ScalarProperty Name="Planilla_Neto" ColumnName="Planilla_Neto" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventario">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Inventario">
+              <MappingFragment StoreEntitySet="Inventario">
+                <ScalarProperty Name="Cod_producto" ColumnName="Cod_producto" />
+                <ScalarProperty Name="Nombre_producto" ColumnName="Nombre_producto" />
+                <ScalarProperty Name="cantidad_Existente" ColumnName="cantidad_Existente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platillo">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Platillo">
+              <MappingFragment StoreEntitySet="Platillo">
+                <ScalarProperty Name="IdPlatillo" ColumnName="IdPlatillo" />
+                <ScalarProperty Name="Nombre_Platillo" ColumnName="Nombre_Platillo" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Cod_Producto" ColumnName="Cod_Producto" />
+                <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+                <ScalarProperty Name="Cantidad_Producto" ColumnName="Cantidad_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proovedores">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Proovedores">
+              <MappingFragment StoreEntitySet="Proovedores">
+                <ScalarProperty Name="Cod_Proovedor" ColumnName="Cod_Proovedor" />
+                <ScalarProperty Name="Nombre_Provedor" ColumnName="Nombre_Provedor" />
+                <ScalarProperty Name="Numero_Pedido" ColumnName="Numero_Pedido" />
+                <ScalarProperty Name="Fecha_Entrega" ColumnName="Fecha_Entrega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="ConexionComedorModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="Cod_venta" ColumnName="Cod_venta" />
+                <ScalarProperty Name="Fecha_Venta" ColumnName="Fecha_Venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
